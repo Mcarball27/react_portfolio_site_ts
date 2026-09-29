@@ -1,43 +1,42 @@
+/// -----------------------------------------------------------------------------
+// AboutHero.tsx — headshot and introduction section for the About page.
+// Author: Maria Martina Carballo Diaz
 // -----------------------------------------------------------------------------
-// AboutHero.tsx — the headshot + intro block at the top of /about.
-// Author: Bill Chen
-// -----------------------------------------------------------------------------
-import headshotImage from '../../assets/headshot.svg';
+
+import headshotImage from '../../assets/photo.png';
 import ResumeDownloadButton from '../ResumeDownloadButton';
 
 export default function AboutHero() {
   return (
-    // Two columns above md (fixed 280px headshot + fluid text); single column
-    // below md, with the headshot cap-widthed so it doesn't fill the screen.
     <div className="grid gap-8 items-start grid-cols-1 md:grid-cols-[280px_1fr]">
       <img
         src={headshotImage}
-        alt="Portrait of Bill Chen"
+        alt="Portrait of Maria Martina Carballo Diaz"
         width={280}
         height={280}
         className="w-full max-w-[280px] h-auto md:w-[280px] md:h-[280px] object-cover rounded-lg bg-surface-2 border border-border shadow-md"
       />
 
       <div className="grid gap-3">
-        <h2 className="mb-0">Bill Chen</h2>
-        <p className="text-accent font-medium m-0">Software developer · Web + mobile</p>
+        <h2 className="mb-0">Maria Martina Carballo Diaz</h2>
 
-        <p className="m-0 leading-relaxed">
-          I'm a software developer who enjoys turning tricky problems into simple,
-          polished user experiences. Over the past few years I've worked across the
-          stack — building React front ends, Node services, and mobile apps — and
-          picked up a deep appreciation for tests, thoughtful design, and shipping
-          small.
+        <p className="text-accent font-medium m-0">
+          Software Engineering Technician Student · Web Development
         </p>
 
         <p className="m-0 leading-relaxed">
-          Outside of work I hike, read broadly, and volunteer teaching intro
-          programming at the local library. I care about writing code that is kind
-          to the next person who reads it.
+          I'm a Software Engineering Technician student at Centennial College with
+          hands-on experience in web development, front-end and back-end support,
+          and working with tools such as GitHub and Firebase.
         </p>
 
-        {/* `justify-self-start` on the button wrapper keeps it from
-            stretching to fill the grid cell. */}
+        <p className="m-0 leading-relaxed">
+          Outside of school and development, I enjoy going to the gym, reading, and
+          learning about aviation. I like staying active, exploring new interests,
+          and challenging myself to keep growing both personally and professionally.
+        </p>
+
+        {/* Resume download */}
         <div className="justify-self-start mt-2">
           <ResumeDownloadButton />
         </div>

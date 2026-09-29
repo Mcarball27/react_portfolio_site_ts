@@ -1,14 +1,11 @@
 // -----------------------------------------------------------------------------
-// Services.tsx — the /services page.
-// Author: Bill Chen
-//
-// Structurally almost identical to Projects.tsx: a constant array of objects
-// mapped to card elements. The takeaway is that this list-of-cards pattern
-// scales to almost any "gallery" page in a small site.
+// Services.tsx — Services page.
+// Author: Maria Martina Carballo Diaz
 // -----------------------------------------------------------------------------
-import serviceProgrammingImage from '../assets/service-programming.svg';
-import serviceWebImage from '../assets/service-web.svg';
-import serviceMobileImage from '../assets/service-mobile.svg';
+
+import serviceProgrammingImage from '../assets/programming.png';
+import serviceWebImage from '../assets/web_dev.png';
+import serviceDatabaseImage from '../assets/database.png';
 
 type Service = {
   id: string;
@@ -20,28 +17,28 @@ type Service = {
 
 const SERVICES: Service[] = [
   {
+    id: 'web-development',
+    title: 'Web Development',
+    image: serviceWebImage,
+    imageAlt: 'Illustration of a browser window',
+    description:
+      'Building responsive and user-friendly websites using HTML, CSS, JavaScript, and React.'
+  },
+  {
     id: 'programming',
     title: 'Programming',
     image: serviceProgrammingImage,
     imageAlt: 'Illustration of code brackets',
     description:
-      'Clean, well-tested code across JavaScript, TypeScript, Python, and Go. Refactors, features, and one-off tools.'
+      'Developing small applications and software projects using languages such as C#, Python, JavaScript, and Java.'
   },
   {
-    id: 'web',
-    title: 'Web Development',
-    image: serviceWebImage,
-    imageAlt: 'Illustration of a browser window',
+    id: 'database-support',
+    title: 'Database & Technical Support',
+    image: serviceDatabaseImage,
+    imageAlt: 'Illustration representing technical and database support',
     description:
-      'Modern, accessible sites with React, Vite, and Node. Marketing pages, dashboards, and full-stack apps.'
-  },
-  {
-    id: 'mobile',
-    title: 'Mobile Development',
-    image: serviceMobileImage,
-    imageAlt: 'Illustration of a smartphone',
-    description:
-      'Cross-platform mobile apps with React Native and native modules where it matters. iOS + Android delivery.'
+      'Working with SQL, Oracle databases, Firebase, Git, and troubleshooting technical issues in development projects.'
   }
 ];
 
@@ -49,10 +46,12 @@ export default function Services() {
   return (
     <section>
       <h1 className="section-title">Services</h1>
-      <p className="lead">Areas I take on for freelance and contract work.</p>
 
-      {/* One-column stack below md, three columns above. `md:grid-cols-3`
-          is the responsive form of `grid-cols-3`. */}
+      <p className="lead">
+        Areas where I can apply my current skills and continue building hands-on experience.
+      </p>
+
+      {/* Service cards */}
       <div className="grid gap-5 mt-6 grid-cols-1 md:grid-cols-3">
         {SERVICES.map((service) => (
           <article
@@ -65,8 +64,14 @@ export default function Services() {
               alt={service.imageAlt}
               loading="lazy"
             />
-            <h3 className="mb-1">{service.title}</h3>
-            <p>{service.description}</p>
+
+            <h3 className="mb-1">
+              {service.title}
+            </h3>
+
+            <p>
+              {service.description}
+            </p>
           </article>
         ))}
       </div>

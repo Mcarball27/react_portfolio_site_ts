@@ -1,65 +1,82 @@
 // -----------------------------------------------------------------------------
-// Logo.tsx — a small, self-contained "brand mark" component.
-// Author: Bill Chen
-//
-// SVG can be written directly inside JSX. The tags look like HTML but attribute
-// names are camelCased (e.g. `stroke-width` in HTML → `strokeWidth` in JSX).
-//
-// The props type is declared explicitly with `LogoProps`; each field is
-// optional (note the `?:`) and has a default value in the destructuring
-// pattern below, so callers can use `<Logo />`, `<Logo size={100} />`, or
-// `<Logo size={100} title="Custom label" />`.
+// Logo.tsx — custom portfolio logo.
+// Author: Maria Martina Carballo Diaz
 // -----------------------------------------------------------------------------
+
 type LogoProps = {
   size?: number;
   title?: string;
 };
 
-export default function Logo({ size = 40, title = 'Bill Chen logo' }: LogoProps) {
+export default function Logo({
+  size = 40,
+  title = 'Maria Martina Carballo logo'
+}: LogoProps) {
   return (
-    // role="img" + aria-label together tell screen readers to treat the entire
-    // SVG as a single labeled image, instead of announcing each shape inside.
     <svg
       role="img"
       aria-label={title}
       width={size}
       height={size}
-      // `viewBox` sets the SVG's internal coordinate system. Everything inside
-      // is drawn in a 64×64 grid; the SVG scales that to whatever `size` says.
       viewBox="0 0 64 64"
       xmlns="http://www.w3.org/2000/svg"
     >
+      {/* Pink gradient used for the logo shape */}
       <defs>
-        {/* A linear gradient reusable via `fill="url(#logoGradient)"` below. */}
-        <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#6ee7b7" />
-          <stop offset="100%" stopColor="#22d3aa" />
+        <linearGradient
+          id="logoGradient"
+          x1="0"
+          y1="0"
+          x2="1"
+          y2="1"
+        >
+          <stop
+            offset="0%"
+            stopColor="var(--color-accent)"
+          />
+
+          <stop
+            offset="100%"
+            stopColor="var(--color-accent-strong)"
+          />
         </linearGradient>
       </defs>
 
-      {/* Hexagon container. The `points` list is (x,y) corner pairs.
-          32,4 → top center · 58,18 → upper right · etc. */}
-      <polygon
-        points="32,4 58,18 58,46 32,60 6,46 6,18"
+      {/* Four-point star shape */}
+      <path
+        d="
+          M32 4
+          C36 18 46 28 60 32
+          C46 36 36 46 32 60
+          C28 46 18 36 4 32
+          C18 28 28 18 32 4
+          Z
+        "
         fill="url(#logoGradient)"
-        stroke="#0f1226"
+        stroke="var(--color-border)"
         strokeWidth="2"
       />
 
-      {/* Initials centered inside the hex. `textAnchor="middle"` centers the
-          text horizontally at x=50%; `dominantBaseline="middle"` centers it
-          vertically at y=54%. */}
+      {/* Inner circle detail */}
+      <circle
+        cx="32"
+        cy="32"
+        r="15"
+        fill="rgba(255,255,255,0.12)"
+      />
+
+      {/* Initials */}
       <text
         x="50%"
-        y="54%"
+        y="53%"
         textAnchor="middle"
         dominantBaseline="middle"
         fontFamily="system-ui, sans-serif"
         fontWeight="700"
-        fontSize="22"
-        fill="#0f1226"
+        fontSize="14"
+        fill="#2a171d"
       >
-        BC
+        MC
       </text>
     </svg>
   );

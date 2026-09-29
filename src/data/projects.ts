@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // projects.ts — single source of truth for project data.
-// Author: Bill Chen
+// Author: Maria Martina Carballo Diaz
 //
 // This file has no JSX and no React imports on purpose: it's just a typed
 // array of plain objects. Both the /projects listing page and the
@@ -11,9 +11,9 @@
 // JSX inside. If you ever add a React element to this file, rename it to
 // `.tsx` — otherwise the compiler will refuse to parse the angle brackets.
 // -----------------------------------------------------------------------------
-import projectDashboardImage from '../assets/project-dashboard.svg';
-import projectMobileImage from '../assets/project-mobile.svg';
-import projectApiImage from '../assets/project-api.svg';
+import studentGradesImage from '../assets/student_grade.jpeg';
+import flightSchoolImage from '../assets/flight_school.jpeg';
+import restaurantImage from '../assets/restaurant_image.jpg';
 
 // Shape of one project entry. Grouping the list-card fields (image, role,
 // outcome) together with the detail-page fields (description, techStack,
@@ -35,52 +35,52 @@ export type Project = {
 };
 
 export const PROJECTS: Project[] = [
-  {
-    id: 'insight-dashboard',
-    title: 'Insight Analytics Dashboard',
-    image: projectDashboardImage,
-    imageAlt: 'Illustration of an analytics dashboard with charts',
-    role: 'Lead front-end developer',
+   {
+    id: 'student-grades',
+    title: 'Student Grades Application',
+    image: studentGradesImage,
+    imageAlt: 'Illustration representing the Student Grades application',
+    role: 'C# Developer',
     outcome:
-      'Delivered a real-time dashboard adopted by 40+ internal teams; cut report generation time from hours to under a minute.',
+      'Created a working desktop application that calculates student averages and displays PASS or FAIL results based on entered grades.',
     description: [
-      'Insight is an internal analytics dashboard used by data teams to explore product usage, funnels, and cohort retention without writing SQL.',
-      'I led the front-end architecture: a virtualized data grid, a chart library wrapper, and a query builder driven by a JSON schema so new metrics can be added without a code change.',
-      'The biggest win was cutting the p95 render time for a 10k-row cohort report from 4.8s to 380ms by moving the aggregation off the main thread and streaming rows as they arrived.'
+      'The Student Grades application is a desktop project built with C# and WPF. It allows a user to enter a student name and three grades, calculate the average, and display the final result.',
+      'I created the user interface and implemented the application logic, including user input handling, grade calculations, validation, and PASS or FAIL output.',
+      'This project helped me strengthen my understanding of C#, event-driven programming, WPF controls, and building simple applications with a graphical user interface.'
     ],
-    techStack: ['React', 'TypeScript', 'Recharts', 'Web Workers', 'Vite', 'Vitest'],
-    timeline: 'Jan 2024 – Nov 2024'
+    techStack: ['C#', 'WPF', 'Visual Studio'],
+    timeline: '2026'
+  },
+   {
+    id: 'flight-school-management',
+    title: 'Flight School Training & Operations Management System',
+    image: flightSchoolImage,
+    imageAlt: 'Flight school management project illustration',
+    role: 'Systems Analyst & Designer',
+    outcome:
+      'Designed the requirements and system structure for a centralized flight school management solution covering training, scheduling, aircraft maintenance, and billing.',
+    description: [
+      'This project focuses on designing a software system for managing the daily operations of a flight school.',
+      'The system is intended to support students, instructors, administrators, and maintenance personnel through features such as lesson scheduling, student management, training progress, aircraft maintenance, and billing.',
+      'My work includes requirements analysis, stakeholder identification, domain classes, system documentation, and data-flow modeling to define how the different parts of the system interact.'
+    ],
+    techStack: ['Systems Analysis', 'UML', 'Data Flow Diagrams', 'Visual Paradigm'],
+    timeline: '2026'
   },
   {
-    id: 'trailtracker',
-    title: 'TrailTracker Mobile App',
-    image: projectMobileImage,
-    imageAlt: 'Illustration of a phone showing a trail map',
-    role: 'React Native developer',
-    outcome:
-      'Shipped an offline-first hiking companion to iOS and Android with 4.8-star ratings and 15k+ downloads in the first quarter.',
-    description: [
-      'TrailTracker is an offline-first mobile app for hikers: download a park, get turn-by-turn trail guidance, and log elevation profiles with no cell signal.',
-      'I built the offline sync layer (SQLite + a delta-based tile fetcher), the map rendering pipeline (MapLibre with a custom tile server), and the trip-planning UI.',
-      'Post-launch we measured a 62% week-1 retention on iOS thanks to a background heuristic that pre-downloads maps for the user\'s next weekend when they\'re on wifi.'
-    ],
-    techStack: ['React Native', 'TypeScript', 'SQLite', 'MapLibre', 'Expo'],
-    timeline: 'Feb 2023 – Jul 2023'
-  },
-  {
-    id: 'orderflow-api',
-    title: 'OrderFlow API Platform',
-    image: projectApiImage,
-    imageAlt: 'Illustration of API endpoints and data flow',
-    role: 'Backend engineer',
-    outcome:
-      'Designed a Node/Express service handling 2M+ orders/day; reduced p95 latency by 62% through query and cache redesign.',
-    description: [
-      'OrderFlow is the order-management API behind a mid-size e-commerce platform. It fans out to inventory, payments, and shipping services and enforces the store\'s idempotency + retry semantics.',
-      'I inherited a service pinned by a single hot Postgres query. Splitting reads into a Redis materialized-view cache with a change-data-capture invalidation loop dropped p95 from 480ms to 180ms.',
-      'The service also grew a small SDK that internal teams use to publish and consume order-events without touching the underlying queue.'
-    ],
-    techStack: ['Node.js', 'Express', 'PostgreSQL', 'Redis', 'Kafka', 'OpenTelemetry'],
-    timeline: 'Aug 2022 – Dec 2023'
-  }
+  id: 'oliva-terra',
+  title: 'Oliva Terra Mediterranean restaurant website',
+  image: restaurantImage,
+  imageAlt: 'Oliva Terra Mediterranean restaurant website',
+  role: 'Front-End Developer',
+  outcome:
+    'Built a multi-page restaurant website that combined interactive JavaScript features with a responsive HTML and CSS interface.',
+  description: [
+    'Oliva Terra is a fictional Mediterranean restaurant website that I developed across multiple assignments for COMP125.',
+    'The project includes multiple connected pages and interactive features built with HTML, CSS, and JavaScript, including navigation, ordering functionality, location information, a weather display, and a food-order dashboard.',
+    'This project helped me strengthen my JavaScript skills and gave me experience combining several web features into one consistent website.'
+  ],
+  techStack: ['HTML', 'CSS', 'JavaScript'],
+  timeline: '2026'
+}
 ];

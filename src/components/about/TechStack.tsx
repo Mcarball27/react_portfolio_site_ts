@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // TechStack.tsx — a grouped list of technologies I use day-to-day.
-// Author: Bill Chen
+// Author: Maria Martina Carballo Diaz
 // -----------------------------------------------------------------------------
 
 export type TechGroup = {
@@ -15,25 +15,33 @@ type TechStackProps = {
 
 export const DEFAULT_TECH_GROUPS: readonly TechGroup[] = [
   {
-    label: 'Frontend',
-    items: ['React', 'TypeScript', 'Vite', 'React Router', 'Tailwind CSS', 'Vitest']
+    label: 'Languages',
+    items: ['JavaScript', 'Java', 'C#', 'HTML', 'CSS', 'SQL']
   },
   {
-    label: 'Backend',
-    items: ['Node.js', 'Express', 'PostgreSQL', 'Redis', 'REST', 'GraphQL']
+    label: 'Web Development',
+    items: ['React', 'Vite', 'React Router', 'Tailwind CSS']
   },
   {
-    label: 'Mobile',
-    items: ['React Native', 'Expo', 'SQLite']
+    label: 'Databases',
+    items: ['Oracle SQL', 'Firebase']
   },
   {
-    label: 'Tooling',
-    items: ['Git', 'GitHub Actions', 'Docker', 'ESLint', 'Prettier', 'Playwright']
+    label: 'Tools',
+    items: [
+      'Git',
+      'GitHub',
+      'VS Code',
+      'Eclipse',
+      'Oracle SQL Developer',
+      'Docker',
+      'ClickUp',
+      'GoHighLevel'
+    ]
   }
 ];
-
 export default function TechStack({
-  title = 'Tech stack',
+  title = 'Technologies & Tools',
   groups = DEFAULT_TECH_GROUPS
 }: TechStackProps) {
   return (
