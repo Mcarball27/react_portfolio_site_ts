@@ -1,24 +1,12 @@
 // -----------------------------------------------------------------------------
-// projects.ts — single source of truth for project data.
+// projects.ts — shared project data for the portfolio.
 // Author: Maria Martina Carballo Diaz
-//
-// This file has no JSX and no React imports on purpose: it's just a typed
-// array of plain objects. Both the /projects listing page and the
-// /projects/:id detail page import from here, so adding a project or fixing
-// a typo happens in exactly one place.
-//
-// The `.ts` extension (not `.tsx`) signals to TypeScript that there's no
-// JSX inside. If you ever add a React element to this file, rename it to
-// `.tsx` — otherwise the compiler will refuse to parse the angle brackets.
 // -----------------------------------------------------------------------------
+
 import studentGradesImage from '../assets/student_grade.jpeg';
 import flightSchoolImage from '../assets/flight_school.jpeg';
 import restaurantImage from '../assets/restaurant_image.jpg';
 
-// Shape of one project entry. Grouping the list-card fields (image, role,
-// outcome) together with the detail-page fields (description, techStack,
-// timeline) into one type means the listing and detail views can't get
-// out of sync — both read from the same object.
 export type Project = {
   id: string;
   title: string;
@@ -26,7 +14,6 @@ export type Project = {
   imageAlt: string;
   role: string;
   outcome: string;
-  // Detail-only fields:
   description: string[];
   techStack: string[];
   timeline: string;
@@ -34,8 +21,9 @@ export type Project = {
   repoUrl?: string;
 };
 
+// Project information used by the Projects and Project Details pages.
 export const PROJECTS: Project[] = [
-   {
+  {
     id: 'student-grades',
     title: 'Student Grades Application',
     image: studentGradesImage,
@@ -51,7 +39,7 @@ export const PROJECTS: Project[] = [
     techStack: ['C#', 'WPF', 'Visual Studio'],
     timeline: '2026'
   },
-   {
+  {
     id: 'flight-school-management',
     title: 'Flight School Training & Operations Management System',
     image: flightSchoolImage,
@@ -64,23 +52,28 @@ export const PROJECTS: Project[] = [
       'The system is intended to support students, instructors, administrators, and maintenance personnel through features such as lesson scheduling, student management, training progress, aircraft maintenance, and billing.',
       'My work includes requirements analysis, stakeholder identification, domain classes, system documentation, and data-flow modeling to define how the different parts of the system interact.'
     ],
-    techStack: ['Systems Analysis', 'UML', 'Data Flow Diagrams', 'Visual Paradigm'],
+    techStack: [
+      'Systems Analysis',
+      'UML',
+      'Data Flow Diagrams',
+      'Visual Paradigm'
+    ],
     timeline: '2026'
   },
   {
-  id: 'oliva-terra',
-  title: 'Oliva Terra Mediterranean restaurant website',
-  image: restaurantImage,
-  imageAlt: 'Oliva Terra Mediterranean restaurant website',
-  role: 'Front-End Developer',
-  outcome:
-    'Built a multi-page restaurant website that combined interactive JavaScript features with a responsive HTML and CSS interface.',
-  description: [
-    'Oliva Terra is a fictional Mediterranean restaurant website that I developed across multiple assignments for COMP125.',
-    'The project includes multiple connected pages and interactive features built with HTML, CSS, and JavaScript, including navigation, ordering functionality, location information, a weather display, and a food-order dashboard.',
-    'This project helped me strengthen my JavaScript skills and gave me experience combining several web features into one consistent website.'
-  ],
-  techStack: ['HTML', 'CSS', 'JavaScript'],
-  timeline: '2026'
-}
+    id: 'oliva-terra',
+    title: 'Oliva Terra Mediterranean restaurant website',
+    image: restaurantImage,
+    imageAlt: 'Oliva Terra Mediterranean restaurant website',
+    role: 'Front-End Developer',
+    outcome:
+      'Built a multi-page restaurant website that combined interactive JavaScript features with a responsive HTML and CSS interface.',
+    description: [
+      'Oliva Terra is a fictional Mediterranean restaurant website that I developed across multiple assignments for COMP125.',
+      'The project includes multiple connected pages and interactive features built with HTML, CSS, and JavaScript, including navigation, ordering functionality, location information, a weather display, and a food-order dashboard.',
+      'This project helped me strengthen my JavaScript skills and gave me experience combining several web features into one consistent website.'
+    ],
+    techStack: ['HTML', 'CSS', 'JavaScript'],
+    timeline: '2026'
+  }
 ];
