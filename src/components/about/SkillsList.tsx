@@ -12,13 +12,12 @@ type SkillsListProps = {
 };
 
 export const DEFAULT_SKILLS: readonly string[] = [
-  'Problem solving — breaking down technical issues and finding practical solutions',
+  'Problem solving — breaking down technical problems and finding practical solutions',
   'Front-end development — building and updating user-facing web interfaces',
-  'Back-end support — contributing to application logic and system functionality',
-  'Database management — working with SQL and Oracle database concepts',
+  'Programming — working with languages such as C#, JavaScript, Python, and Java',
+  'Databases — working with SQL and Oracle database concepts',
   'Version control — using Git and GitHub for project collaboration',
-  'Troubleshooting — identifying and resolving technical issues',
-  'Team collaboration — working with shared tasks, feedback, and project tools'
+  'Teamwork — contributing to shared projects, feedback, and assigned tasks'
 ];
 
 export const COOL_SKILLS: readonly string[] = [
